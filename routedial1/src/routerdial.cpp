@@ -164,6 +164,8 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
 
     if ((socket = connect_start()) == 0)
     {
+        log_print("connect_start err arg: usr[0x%08x]:%s passwd[0x%08x]%s\n",
+                __FUNCTION__, pusr, pusr, passwd, passwd);
         log_exit();
         return 0;
     }
