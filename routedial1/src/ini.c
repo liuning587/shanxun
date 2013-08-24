@@ -73,6 +73,12 @@ create_example_ini_file(void)
     "port   = 80\n"
     "#是否记录日志\n"
     "log    = yes\n"
+    "#路由器类型"
+    "#0: 水星"
+    "#1: TP-link   WR710"
+    "#2: TP-link   WR800"
+    "#3: Tenda"
+    "type   = 1\n"
     "\n");
     fclose(ini);
 }
@@ -182,4 +188,37 @@ ini_get_log_flag(char *pflag)
     return 0;
 }
 
+
+/**
+ ******************************************************************************
+ * @brief   从配置文件中获取路由器牌子
+ * @param[out] *pserverip   : 返回type
+ *
+ * @retval     -1 失败
+ * @retval      0 成功
+ ******************************************************************************
+ */
+int
+ini_get_log_type(int *ptype)
+{
+    dictionary  *   ini ;
+
+    ini = iniparser_load(DEFAULT_INI_FILE);
+    if (NULL == ini)
+    {
+        create_example_ini_file();
+        ini = iniparser_load(DEFAULT_INI_FILE);
+        if (ini == NULL)
+        {
+            return -1;
+        }
+    }
+
+    iniparser_dump(ini, NULL);//stderr
+    *ptype = iniparser_getint(ini, "client:type", -1);
+
+    iniparser_freedict(ini);
+
+    return 0;
+}
 /*----------------------------ini.c--------------------------------*/

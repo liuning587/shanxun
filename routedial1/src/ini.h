@@ -39,6 +39,7 @@ extern "C" {
 extern int ini_get_server_ip(char * pserverip);
 extern int ini_get_server_port(unsigned short *pport);
 extern int ini_get_log_flag(char *pflag);
+extern int ini_get_log_type(int *ptype);
 
 #ifdef __cplusplus      /* Maintain C++ compatibility */
 }

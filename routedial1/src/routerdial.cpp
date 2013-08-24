@@ -107,7 +107,7 @@ static char logflag = 0;
  * 2: TP-link   WR800
  * 3: Tenda
  */
-static char gateway_type = 3;   /* 路由器类型 */
+static int gateway_type = 1;   /* 路由器类型 */
 
 /*-----------------------------------------------------------------------------
  Section: Global Function Prototypes
@@ -123,6 +123,7 @@ connect_start(void)
     (void)ini_get_server_ip(serverip);
     (void)ini_get_server_port(&port);
     (void)ini_get_log_flag(&logflag);
+    (void)ini_get_log_type(&gateway_type);
 
     (void)log_init();
     log_on(logflag);
