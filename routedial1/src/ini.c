@@ -73,11 +73,11 @@ create_example_ini_file(void)
     "port   = 80\n"
     "#是否记录日志\n"
     "log    = yes\n"
-    "#路由器类型"
-    "#0: 水星"
-    "#1: TP-link   WR710"
-    "#2: TP-link   WR800"
-    "#3: Tenda"
+    "#路由器类型\n"
+    "#0: 水星\n"
+    "#1: TP-link   WR710\n"
+    "#2: TP-link   WR800\n"
+    "#3: Tenda\n"
     "type   = 1\n"
     "\n");
     fclose(ini);
