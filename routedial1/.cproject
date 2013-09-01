@@ -41,7 +41,7 @@
 								<option defaultValue="true" id="gnu.c.link.mingw.so.debug.option.shared.152851392" name="Shared (-shared)" superClass="gnu.c.link.mingw.so.debug.option.shared" valueType="boolean"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.debug.271523834" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.debug">
-								<option defaultValue="true" id="gnu.cpp.link.mingw.so.debug.option.shared.1172577805" name="Shared (-shared)" superClass="gnu.cpp.link.mingw.so.debug.option.shared" valueType="boolean"/>
+								<option defaultValue="true" id="gnu.cpp.link.mingw.so.debug.option.shared.1172577805" name="Shared (-shared)" superClass="gnu.cpp.link.mingw.so.debug.option.shared" value="true" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.libs.1466120172" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="wsock32"/>
 								</option>
@@ -129,4 +129,5 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

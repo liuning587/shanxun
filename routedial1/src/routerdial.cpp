@@ -78,7 +78,7 @@ static const char *pTPlinkchar = "GET /userRpm/PPPoECfgRpm.htm?wantype=2&VnetPap
  * 5：路由器地址
  */
 /* TP-LINK路由器new(800) */
-static const char *pTPlinkchar800 = "GET /userRpm/PPPoECfgRpm.htm?wan=0&wantype=2&acc=%s&psw=%s&confirm=%s&specialDial=100&SecType=0&sta_ip=0.0.0.0&sta_mask=0.0.0.0&linktype=4&waittime2=15&Save=%%B1%%A3+%%B4%%E6 HTTP/1.1\r\n"
+static const char *pTPlinkchar800 = "GET /userRpm/PPPoECfgRpm.htm?wan=0&wantype=2&acc=%s&psw=%s&confirm=%s&specialDial=100&SecType=0&sta_ip=0.0.0.0&sta_mask=0.0.0.0&linktype=4&waittime2=15&Connect=%%C1%%AC+%%BD%%D3 HTTP/1.1\r\n"
         "Accept: text/html, application/xhtml+xml, */*\r\n"
         "Referer: http://%s/userRpm/PPPoECfgRpm.htm\r\n"
         "Accept-Language: zh-cn\r\n"
