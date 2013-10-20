@@ -3,7 +3,7 @@
  * @file       config.h
  * @brief      ≈‰÷√Œƒº˛
  * @details    This file including all API functions's declare of config.h.
- * @copyright  Copyrigth(C), 2008-2012,Sanxing Electric Co.,Ltd.
+ * @copyright
  *
  ******************************************************************************
  */

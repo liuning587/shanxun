@@ -3,7 +3,7 @@
  * @file       ini.h
  * @brief      API include file of ini.h.
  * @details    This file including all API functions's declare of ini.h.
- * @copyright  Copyrigth(C), 2008-2012,Sanxing Electric Co.,Ltd.
+ * @copyright
  *
  ******************************************************************************
  */

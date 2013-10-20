@@ -3,7 +3,7 @@
  * @file       log.h
  * @brief      日志记录模块
  * @details    This file including all API functions's declare of log.h.
- * @copyright  Copyrigth(C), 2008-2012,Sanxing Electric Co.,Ltd.
+ * @copyright
  *
  ******************************************************************************
  */

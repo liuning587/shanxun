@@ -3,7 +3,7 @@
  * @file       socket.h
  * @brief      API include file of socket.h.
  * @details    This file including all API functions's declare of socket.h.
- * @copyright  Copyrigth(C), 2008-2012,Sanxing Electric Co.,Ltd.
+ * @copyright
  *
  ******************************************************************************
  */
