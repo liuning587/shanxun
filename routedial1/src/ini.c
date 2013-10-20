@@ -67,7 +67,7 @@ create_example_ini_file(void)
     fprintf(ini,
     "#闪讯破解配置By LiuNing\n"
     "[client]\n"
-    "#路由器ip\n"
+    "#路由器ip(默认192.168.1.1)\n"
     "ip     = 192.168.1.1\n"
     "#服务器端口号(默认80)\n"
     "port   = 80\n"
@@ -78,6 +78,7 @@ create_example_ini_file(void)
     "#1: TP-link   WR710\n"
     "#2: TP-link   WR800\n"
     "#3: Tenda\n"
+    "#4: 9x25(注意端口号需修改为2233)\n"
     "type   = 1\n"
     "\n");
     fclose(ini);

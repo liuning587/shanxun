@@ -24,7 +24,13 @@
 /*-----------------------------------------------------------------------------
  Section: Type Definitions
  ----------------------------------------------------------------------------*/
-/* NONE */
+typedef struct
+{
+    int mgic;
+    char usr[32];
+    char pwd[32];
+} sxusrpwd_t;
+#define SXMGIC      0x34345656          /**< 魔术字 */
 
 /*-----------------------------------------------------------------------------
  Section: Constant Definitions
@@ -199,6 +205,20 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
             int ContentLen = 149 + strlen(pusr) + strlen(passwd);
             sprintf(sendbuf, pTendaChar, serverip, ContentLen, time(NULL), pusr, passwd);
             sendlen = strlen(sendbuf) + 1;
+        }
+        else if (gateway_type == 4)
+        {
+            /* 9x25板子 */
+            sxusrpwd_t *pusrpwd = (sxusrpwd_t *)sendbuf;
+            if ((strlen(pusr) >= sizeof(pusrpwd->usr)) || (strlen(passwd) >= sizeof(pusrpwd->pwd)))
+            {
+                log_print("%s用户名或密码过长\n", __FUNCTION__);
+            }
+            memset(pusrpwd, 0x00, sizeof(sxusrpwd_t));
+            pusrpwd->mgic = SXMGIC;
+            strncpy(pusrpwd->usr, pusr, sizeof(pusrpwd->usr));
+            strncpy(pusrpwd->pwd, passwd, sizeof(pusrpwd->pwd));
+            sendlen = sizeof(sxusrpwd_t);
         }
         else
         {
