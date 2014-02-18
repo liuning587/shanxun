@@ -79,6 +79,7 @@ create_example_ini_file(void)
     "#2: TP-link   WR800\n"
     "#3: Tenda\n"
     "#4: 9x25(注意端口号需修改为2233)\n"
+    "#5: TP-link   WR842N\n"
     "type   = 1\n"
     "\n");
     fclose(ini);
