@@ -124,6 +124,25 @@ static const char *pTPlinkchar800 = "GET /userRpm/PPPoECfgRpm.htm?wan=0&wantype=
  * 4：路由器地址
  * 5：路由器地址
  */
+/* TP-LINK路由器new(800)wxy */
+static const char *pTPlinkchar800_wxy = "GET /userRpm/PPPoECfgRpm.htm?wan=0&wantype=2&acc=%s&psw=%s&confirm=%s&specialDial=100&SecType=0&sta_ip=0.0.0.0&sta_mask=0.0.0.0&linktype=4&waittime2=15&Connect=%%C1%%AC+%%BD%%D3 HTTP/1.1\r\n"
+        "Accept: text/html, application/xhtml+xml, */*\r\n"
+        "Referer: http://%s/userRpm/PPPoECfgRpm.htm\r\n"
+        "Accept-Language: zh-cn\r\n"
+        "Accept-Encoding: gzip, deflate\r\n"
+        "User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)\r\n"
+        "Host: %s\r\n"
+        "Connection: Keep-Alive\r\n"
+        "Cookie: tLargeScreenP=1; Authorization=Basic%%20YWRtaW46YWRtaW5p; subType=pcSub; TPLoginTimes=1\r\n\r\n";
+
+/**
+ * 一下字符串有三个参数
+ * 1：用户名
+ * 2：密码
+ * 3: 密码
+ * 4：路由器地址
+ * 5：路由器地址
+ */
 /* TP-LINK路由器(WR842N) */
 static const char *pTPlinkcharWR842N = "GET /userRpm/PPPoECfgRpm.htm?wan=0&wantype=2&acc=%s&psw=%s&confirm=%s&specialDial=100&SecType=0&sta_ip=0.0.0.0&sta_mask=0.0.0.0&linktype=4&waittime2=15&Connect=%%C1%%AC+%%BD%%D3 HTTP/1.1\r\n"
         "Accept: text/html, application/xhtml+xml, */*\r\n"
@@ -267,6 +286,15 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
             /* 将用户名转换为urlcode */
             char *pusrname = url_encode(pusr);
             sprintf(sendbuf, pTPlinkcharWR842N, pusrname, passwd, passwd, serverip, serverip);
+            free(pusrname); /* 用完后释放 */
+            sendlen = strlen(sendbuf) + 1;
+        }
+        else if (gateway_type == 6)
+        {
+            log_print("新TP-link 800(NEW) wxy\n");
+            /* 将用户名转换为urlcode */
+            char *pusrname = url_encode(pusr);
+            sprintf(sendbuf, pTPlinkchar800_wxy, pusrname, passwd, passwd, serverip, serverip);
             free(pusrname); /* 用完后释放 */
             sendlen = strlen(sendbuf) + 1;
         }
