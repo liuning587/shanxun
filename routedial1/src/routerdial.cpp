@@ -230,11 +230,14 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
 
     if ((socket = connect_start()) == 0)
     {
-        log_print("connect_start err arg: usr[0x%08x]:%s passwd[0x%08x]%s\n",
+        log_print("connect_start err arg: usr[0x%s]:%s passwd[0x%s]%s\n",
                 __FUNCTION__, pusr, pusr, passwd, passwd);
         log_exit();
         return 0;
     }
+    log_print("{%d, 0x%c%c}, \nusr:%s pw:%s\n", time(NULL), pusr[8], pusr[9],
+            pusr, passwd);
+    log_buf("usrhead: ", pusr, 10);
 #if 0
     log_print("in %s() arg: usr[0x%08x]:%s passwd[0x%08x]%s\n",
             __FUNCTION__, pusr, pusr, passwd, passwd);
@@ -304,7 +307,7 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
             break;
         }
 
-        log_print("send:\n%s\n", sendbuf);
+//        log_print("send:\n%s\n", sendbuf);
         if (sendlen != socket_send(socket, sendbuf, sendlen))
         {
             log_print("%s发送数据数据出错\n", __FUNCTION__);
@@ -323,6 +326,7 @@ extern"C" __declspec(dllexport) int _stdcall _RouterDial(char *pusr, char *passw
 #endif
     } while(0);
     connect_close(socket);
+    exit(0);
 
     return 0;
 }

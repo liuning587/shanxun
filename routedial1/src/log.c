@@ -128,14 +128,14 @@ log_buf(const char *pformat,
         (void)fprintf(the_log_fp, pformat);
         for (i = 0; i < len; i++)
         {
-            (void)fprintf(the_log_fp, "%02X ", *(pbuffer + i));
+            (void)fprintf(the_log_fp, "0x%02X, ", *(pbuffer + i));
         }
         (void)fprintf(the_log_fp, "\n");
 
         (void)printf(pformat);
         for (i = 0; i < len; i++)
         {
-            (void)printf("%02X ", *(pbuffer + i));
+            (void)printf("0x%02X, ", *(pbuffer + i));
         }
         (void)printf("\n");
     }
